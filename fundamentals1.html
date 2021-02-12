@@ -1,0 +1,38 @@
+<!-- fundamentals1.html -->
+<!-- CSC 362 Week 2 -->
+
+<body>
+  <svg id="chart" width="600" height="300"></svg>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+
+    function factors(myInt) {
+      var upper = myInt
+      var factorArray = [1, myInt]
+      for (var i = 2; i < upper; i++) {
+        if (Number.isInteger(myInt/i)) {
+          factorArray.push(i)
+          factorArray.push(myInt/i)
+          upper = myInt/i
+        }
+      }
+      return factorArray
+    }
+
+    const array = factors(24)
+
+    d3.select("#chart")
+      .selectAll("circle")
+      .data(array)
+      .enter()
+      .append("circle")
+        .attr("r", d => d)
+        .attr("cy", 150)
+        .attr("cx", d => d*10)
+        .attr("fill", "yellow")
+        .attr("stroke", "blue")
+
+
+
+  </script>
+</body>

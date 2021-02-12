@@ -1,0 +1,33 @@
+<!-- fundamentals2.html -->
+<!-- CSC 362 Week 2 -->
+
+<body>
+    <svg id="chart" width="1000" height="300"></svg>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+      
+      const array = [92, 56, 14, 73, 22, 38, 93, 45, 55]
+      
+      for (var i = 0; i < array.length; i++) {
+        d3.select("#chart")
+            .append("circle")
+                .attr("r", array[i]/2)
+                .attr("cy", 150)
+                .attr("cx", 50 + 100*i)
+                .attr("fill", "black")
+      }  
+      
+
+      setTimeout(function() {
+        d3.select("#chart").selectAll("circle")
+          .data(array.sort())
+          .transition().duration(1000)
+          .attr("r", d => d/2)
+          .attr("cy", 150)
+          .attr("cx", (d,i) => 50 + i*100)
+          .style("fill", "black")
+      }, 2000)
+
+    </script>
+  </body>
+  

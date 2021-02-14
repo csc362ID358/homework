@@ -1,0 +1,95 @@
+<!--
+Your names goes here
+-->
+
+<body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Set up basic webpage structure -->
+  <div id="header">
+    <p>Welcome! This webpage defines and gives examples of the four data types: Nominal, Interval, Ordinal, and Ratio data.</p>
+  </div>
+  <div id="nominal">
+    <p><b>Nominal</b></p>
+    <p>Nominal data types are data where the data described has no real numerical value and cannot be ordered. Nominal data could be a list of the favorite fruit of every person in a class, or the hair colors of members of a family.</p>
+  </div>
+  <div id="ordinal">
+    <p><b>Ordinal</b></p>
+    <p>Ordinal data types are data that can be ordered, but the difference between data points is not known. The answers that patients give when their doctor asks them to rate their pain on a scale of 1-10 would be a common example of an ordinal data set.</p>
+  </div>
+  <div id="interval">
+    <p><b>Interval</b></p>
+    <p>Interval data types are data that can be ordered, and the differences between data points are known, but there is no true zero. You can add or subtract one value from another value, but you can't multiply values or understand values as a ratio between one value and another. An example of interval data would be a dataset containing the high and low temperatures for a month, measured on a Fahrenheit or Celsius scale.</p>
+  </div>
+  <div id="ratio">
+    <p><b>Ratio</b></p>
+    <p>Ratio data types are data that can be ordered, that has differences that are known, and that has a true zero. You can multiply and divide values and the relationships between values stay the same. A dataset of the weight and height of every member of an age group would be a ratio data.</p>
+  </div>
+
+  <style>
+    .red {
+      color: black;
+      background-color: #f17b7b;
+    }
+
+    .green {
+      color: black;
+      background-color: #84f59d;
+    }
+
+    .blue {
+      color: black;
+      background-color: #84bef5;
+    }
+
+    .purple {
+      color: black;
+      background-color: #be84f5;
+    }
+  </style>
+
+  <script>
+    const allSections = d3.selectAll("div");
+    d3.select(header).style('font-weight', 'bold');
+    d3.select(nominal).classed('red', true);
+    d3.select(ordinal).classed('green', true);
+    d3.select(interval).classed('blue', true);
+    d3.select(ratio).classed('purple', true);
+
+  </script>
+
+  <!-- I moved this from inside script below because the code wasn't running. It seems to work fine here.
+  <p>See results in console log.</p>
+  <div id="section">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+  </div>
+  <p>Paragraph 3</p>
+
+  <script>
+    var div = d3.select("#section"); //changed const to var to get code on line 62 working
+    const domDiv = div.node();
+    const firstP = div.select("p");
+    const allParagraphs = d3.selectAll("p");
+    const allPDom = allParagraphs.nodes();
+    const sectionParagraphs = d3.select("div").selectAll("p");
+
+    div.style('border', 'solid blue 2px');
+    firstP.classed('first', true);
+    firstP.text('This is paragraph zero');
+    allParagraphs.style('font-weight', 'bold');
+    d3.select('.first').attr('title', 'Tooltip').style('font-variant', 'small-caps').html('This is a <b>bold</b> paragraph.');
+
+    sectionParagraphs.each(function (d, i) {  //Nothing prints to console when I do this and the visual doesn't change.
+      d3.select(this).classed('red', true);   //This is not the case when I change it to allParagraphs. Bug unclear.
+      console.log('Paragraph ${i}: ', this);
+    });
+
+    d3.select("#section").insert("p", '.first').append('a').attr('href', 'https://d3js.org').text("D3 website");
+    div = d3.select('div').select('p:last-of-type').remove(); //removed const to get this line working
+    div.append("p").text("New paragraph");
+    d3.select("body").insert("h1", "*").text("New title");
+    d3.select("body").append("h2").text("Footer");
+  </script> -->
+
+</body>
